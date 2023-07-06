@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import Experience from "./3d/Experience";
 import MyLight from "./3d/MyLight";
-import { KeyboardControls, ScrollControls } from "@react-three/drei";
+import { KeyboardControls } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
 import Game from "./Game";
 

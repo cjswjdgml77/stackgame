@@ -16,7 +16,7 @@ const Game = () => {
           initial={{ y: -200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -200, opacity: 0, transition: { duration: 0.5 } }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 1 }}
         >
           STACK
         </motion.h1>
@@ -25,7 +25,7 @@ const Game = () => {
           initial={{ y: 200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 200, opacity: 0, transition: { duration: 0.5 } }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 1 }}
           onClick={(e) => {
             e.stopPropagation();
             clickSound.play();

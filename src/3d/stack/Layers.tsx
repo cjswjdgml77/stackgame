@@ -72,13 +72,15 @@ const Layers = () => {
           </RigidBody>
         ))}
       </group>
-      {exactSize && (
+      {step === "start" && exactSize && (
         <mesh
           ref={correctRef}
           scale={[
-            layers[layers.length - 1].scale[0] + 0.5,
+            layers[layers.length - 1].scale[0] +
+              layers[layers.length - 1].scale[0] / 3,
             0.05,
-            layers[layers.length - 1].scale[2] + 0.5,
+            layers[layers.length - 1].scale[2] +
+              layers[layers.length - 1].scale[0] / 3,
           ]}
           position={[
             layers[layers.length - 1].position[0],
