@@ -37,7 +37,18 @@ const Game = () => {
       </div>
     );
   };
-
+  const Count = () => {
+    return (
+      <motion.div
+        className="h-3/4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <p className="text-4xl">{layers.length - 1}</p>
+      </motion.div>
+    );
+  };
   const Finish = () => {
     return (
       <motion.div
@@ -66,10 +77,14 @@ const Game = () => {
     );
   };
   return (
-    <AnimatePresence>
-      {step === "initial" && <Initial />}
-      {step === "finish" && <Finish />}
-    </AnimatePresence>
+    <>
+      {step === "start" && layers.length > 1 && <Count key="count" />}
+
+      <AnimatePresence>
+        {step === "initial" && <Initial key="initial" />}
+        {step === "finish" && <Finish key="finish" />}
+      </AnimatePresence>
+    </>
   );
 };
 

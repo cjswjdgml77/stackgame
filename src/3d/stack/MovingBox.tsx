@@ -13,7 +13,9 @@ type Props = {
   layers: gameBox[];
 };
 const successSound = new Audio("./sound/success.mp3");
+successSound.load();
 const failSound = new Audio("./sound/fail.mp3");
+failSound.load();
 const MovingBox = ({
   curShape,
   setCurShape,
@@ -41,7 +43,7 @@ const MovingBox = ({
       direction.current = false;
     }
     const dir = direction.current ? 1 : -1;
-    const strength = 5 * delta * 1.5 * dir;
+    const strength = 5 * delta * dir; //*1.5;
     isX.current
       ? ref.current.position.setX(current + strength)
       : ref.current.position.setZ(current + strength);
@@ -90,6 +92,7 @@ const MovingBox = ({
       // lower than maxOfCut wouldn't be cut
       if (Math.abs(cut) < maxOfCut) {
         successSound.currentTime = 0;
+        successSound.autoplay = true;
         successSound.play();
         const meshProps = {
           scale: [scale.x, scale.y, scale.z] as numArr,
